@@ -17,5 +17,5 @@ end
 # gem build mernis.gemspec
 # sudo gem install ./mernis-0.1.5.gem
 # gem push mernis-0.1.5.gem
-# git tag -a v0.1.5 -m "foo"
+# git tag -a v0.2.5 -m "foo"
 # git push --tags
