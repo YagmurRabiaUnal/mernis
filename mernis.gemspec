@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = "mernis"
-  s.version     = "0.1.5"
+  s.version     = "0.2.5"
   s.platform    = Gem::Platform::RUBY
   s.date        = Time.now.strftime("%Y-%m-%d")
   s.summary     = "SOAP client for KPS services."
@@ -10,11 +10,11 @@ Gem::Specification.new do |s|
   s.files       = ["lib/mernis.rb", "lib/mernis/request.rb"]
   s.homepage    = "https://github.com/msdundar/mernis"
   s.licenses    = ["MIT"]
-  s.add_dependency "savon", "> 2.7.2"
+  s.add_dependency "savon", "~> 2.7"
 end
 
 # gem build mernis.gemspec
-# sudo gem install ./mernis-0.1.5.gem 
-# gem push mernis-0.1.5.gem 
+# sudo gem install ./mernis-0.1.5.gem
+# gem push mernis-0.1.5.gem
 # git tag -a v0.1.5 -m "foo"
 # git push --tags
