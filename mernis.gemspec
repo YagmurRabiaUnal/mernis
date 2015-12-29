@@ -11,6 +11,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/msdundar/mernis"
   s.licenses    = ["MIT"]
   s.add_dependency "savon", "~> 2.7"
+  spec.required_ruby_version = '>= 1.8.6'
 end
 
 # gem build mernis.gemspec
