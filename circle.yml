@@ -2,9 +2,6 @@ machine:
   ruby:
     version:
       2.2.3
-dependencies:
-  pre:
-    - gem install rspec-core
 test:
   override:
     - bundle exec rspec
