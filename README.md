@@ -4,6 +4,7 @@ SOAP client for KPS (The Identity Information Sharing System) services provided 
 
 [![Gem Version](https://badge.fury.io/rb/mernis.svg)](http://badge.fury.io/rb/mernis)
 [![Code Climate](https://codeclimate.com/github/msdundar/mernis/badges/gpa.svg)](https://codeclimate.com/github/msdundar/mernis)
+[![CircleCI](https://circleci.com/gh/msdundar/mernis.svg?style=svg)](https://circleci.com/gh/msdundar/mernis)
 
 ## Setup
 
