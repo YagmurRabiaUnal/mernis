@@ -14,44 +14,48 @@ describe 'Request' do
   end
 
   it 'returns true with correct identity' do
-    response = @client.call(:tc_kimlik_no_dogrula, message: {
-      "TCKimlikNo" => "11311152982",
-      "Ad" => "Kuzey Tüner".tr('ı', 'I').tr('i', 'İ').upcase,
-      "Soyad" => "Şenkul".tr('ı', 'I').tr('i', 'İ').upcase,
-      "DogumYili" => "2014"
+    response = @client.call(:tc_kimlik_no_dogrula, message:
+    {
+      'TCKimlikNo' => '11311152982',
+      'Ad' => 'Kuzey Tüner'.tr('ı', 'I').tr('i', 'İ').upcase,
+      'Soyad' => 'Şenkul'.tr('ı', 'I').tr('i', 'İ').upcase,
+      'DogumYili' => '2014'
     })
     bool_value = response.body[:tc_kimlik_no_dogrula_response][:tc_kimlik_no_dogrula_result]
     expect(bool_value).to equal(true)
   end
 
   it 'returns true with downcase characters' do
-    response = @client.call(:tc_kimlik_no_dogrula, message: {
-      "TCKimlikNo" => "11311152982",
-      "Ad" => "kuzey tüner".tr('ı', 'I').tr('i', 'İ').upcase,
-      "Soyad" => "şenkul".tr('ı', 'I').tr('i', 'İ').upcase,
-      "DogumYili" => "2014"
+    response = @client.call(:tc_kimlik_no_dogrula, message:
+    {
+      'TCKimlikNo' => '11311152982',
+      'Ad' => 'kuzey tüner'.tr('ı', 'I').tr('i', 'İ').upcase,
+      'Soyad' => 'şenkul'.tr('ı', 'I').tr('i', 'İ').upcase,
+      'DogumYili' => '2014'
     })
     bool_value = response.body[:tc_kimlik_no_dogrula_response][:tc_kimlik_no_dogrula_result]
     expect(bool_value).to equal(true)
   end
 
   it 'returns true with upcase characters' do
-    response = @client.call(:tc_kimlik_no_dogrula, message: {
-      "TCKimlikNo" => "11311152982",
-      "Ad" => "KUZEY TÜNER".tr('ı', 'I').tr('i', 'İ').upcase,
-      "Soyad" => "ŞENKUL".tr('ı', 'I').tr('i', 'İ').upcase,
-      "DogumYili" => "2014"
+    response = @client.call(:tc_kimlik_no_dogrula, message:
+    {
+      'TCKimlikNo' => '11311152982',
+      'Ad' => 'KUZEY TÜNER'.tr('ı', 'I').tr('i', 'İ').upcase,
+      'Soyad' => 'ŞENKUL'.tr('ı', 'I').tr('i', 'İ').upcase,
+      'DogumYili' => '2014'
     })
     bool_value = response.body[:tc_kimlik_no_dogrula_response][:tc_kimlik_no_dogrula_result]
     expect(bool_value).to equal(true)
   end
 
   it 'returns false with incorrect identity' do
-    response = @client.call(:tc_kimlik_no_dogrula, message: {
-      "TCKimlikNo" => "11311152982",
-      "Ad" => "Kuzey".tr('ı', 'I').tr('i', 'İ').upcase,
-      "Soyad" => "Şenkul".tr('ı', 'I').tr('i', 'İ').upcase,
-      "DogumYili" => "2014"
+    response = @client.call(:tc_kimlik_no_dogrula, message:
+    {
+      'TCKimlikNo' => '11311152982',
+      'Ad' => 'Kuzey'.tr('ı', 'I').tr('i', 'İ').upcase,
+      'Soyad' => 'Şenkul'.tr('ı', 'I').tr('i', 'İ').upcase,
+      'DogumYili' => '2014'
     })
     bool_value = response.body[:tc_kimlik_no_dogrula_response][:tc_kimlik_no_dogrula_result]
     expect(bool_value).to equal(false)

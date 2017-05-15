@@ -26,15 +26,15 @@ class Request
       log: @log
     )
 
-  # Create message pattern
+    # Create message pattern
     message = {
-      "TCKimlikNo" => @id_number.to_s,
-      "Ad" => @first_name.tr('ı', 'I').tr('i', 'İ').upcase,
-      "Soyad" => @last_name.tr('ı', 'I').tr('i', 'İ').upcase,
-      "DogumYili" => @birth_year.to_s
+      'TCKimlikNo' => @id_number.to_s,
+      'Ad' => @first_name.tr('ı', 'I').tr('i', 'İ').upcase,
+      'Soyad' => @last_name.tr('ı', 'I').tr('i', 'İ').upcase,
+      'DogumYili' => @birth_year.to_s
     }
 
-  # Make the SOAP request and handle errors.
+    # Make the SOAP request and handle errors.
     begin
       response = kps_client.call(:tc_kimlik_no_dogrula, message: message)
     rescue Savon::SOAPFault => error
@@ -43,12 +43,16 @@ class Request
       puts "HTTP connection error. Error: #{error}"
     end
 
-  # Get the SOAP response and handle errors.
+    # Get the SOAP response and handle errors.
     begin
       bool_value = response.body[:tc_kimlik_no_dogrula_response][:tc_kimlik_no_dogrula_result]
       return bool_value
     rescue NoMethodError => error
-      response.nil? ? (puts "Errors occured. Response is nil! Error: #{error}") : (puts "There is an error with the response. Error: #{error}")
+      if response.nil?
+        puts "Errors occured. Response is nil! Error: #{error}"
+      else
+        puts "There is an error with the response. Error: #{error}"
+      end
     rescue Savon::InvalidResponseError => error
       puts "Not a valid response! Error: #{error}"
     end
