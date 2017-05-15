@@ -29,8 +29,8 @@ class Request
   # Create message pattern
     message = {
       "TCKimlikNo" => @id_number.to_s,
-      "Ad" => @first_name,
-      "Soyad" => @last_name,
+      "Ad" => @first_name.tr('ı', 'I').tr('i', 'İ').upcase,
+      "Soyad" => @last_name.tr('ı', 'I').tr('i', 'İ').upcase,
       "DogumYili" => @birth_year.to_s
     }
 
