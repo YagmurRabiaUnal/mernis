@@ -1,5 +1,7 @@
 # encoding: utf-8
 
+require 'mernis/version'
+
 class Mernis
   # Most basic usage:
     # Mernis.sorgula("12345", "John", "Doe", "1990")
@@ -18,5 +20,3 @@ class Mernis
     response.sorgula
   end
 end
-
-require 'mernis/request'
