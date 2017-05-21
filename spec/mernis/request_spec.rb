@@ -1,6 +1,7 @@
 require 'spec_helper'
 require 'savon'
 require 'mernis'
+require 'unicode_utils'
 
 describe 'Request' do
   before(:each) do
@@ -17,8 +18,8 @@ describe 'Request' do
     response = @client.call(:tc_kimlik_no_dogrula, message:
     {
       'TCKimlikNo' => '11311152982',
-      'Ad' => 'Kuzey Tüner'.tr('ı', 'I').tr('i', 'İ').upcase,
-      'Soyad' => 'Şenkul'.tr('ı', 'I').tr('i', 'İ').upcase,
+      'Ad' => UnicodeUtils.upcase('Kuzey Tüner', :tr),
+      'Soyad' => UnicodeUtils.upcase('Şenkul', :tr),
       'DogumYili' => '2014'
     })
     bool_value = response.body[:tc_kimlik_no_dogrula_response][:tc_kimlik_no_dogrula_result]
@@ -29,8 +30,8 @@ describe 'Request' do
     response = @client.call(:tc_kimlik_no_dogrula, message:
     {
       'TCKimlikNo' => '11311152982',
-      'Ad' => 'kuzey tüner'.tr('ı', 'I').tr('i', 'İ').upcase,
-      'Soyad' => 'şenkul'.tr('ı', 'I').tr('i', 'İ').upcase,
+      'Ad' => UnicodeUtils.upcase('kuzey tüner', :tr),
+      'Soyad' => UnicodeUtils.upcase('şenkul', :tr),
       'DogumYili' => '2014'
     })
     bool_value = response.body[:tc_kimlik_no_dogrula_response][:tc_kimlik_no_dogrula_result]
@@ -41,8 +42,8 @@ describe 'Request' do
     response = @client.call(:tc_kimlik_no_dogrula, message:
     {
       'TCKimlikNo' => '11311152982',
-      'Ad' => 'KUZEY TÜNER'.tr('ı', 'I').tr('i', 'İ').upcase,
-      'Soyad' => 'ŞENKUL'.tr('ı', 'I').tr('i', 'İ').upcase,
+      'Ad' => UnicodeUtils.upcase('KUZEY TÜNER', :tr),
+      'Soyad' => UnicodeUtils.upcase('ŞENKUL', :tr),
       'DogumYili' => '2014'
     })
     bool_value = response.body[:tc_kimlik_no_dogrula_response][:tc_kimlik_no_dogrula_result]
@@ -53,8 +54,8 @@ describe 'Request' do
     response = @client.call(:tc_kimlik_no_dogrula, message:
     {
       'TCKimlikNo' => '11311152982',
-      'Ad' => 'Kuzey'.tr('ı', 'I').tr('i', 'İ').upcase,
-      'Soyad' => 'Şenkul'.tr('ı', 'I').tr('i', 'İ').upcase,
+      'Ad' => UnicodeUtils.upcase('Kuzey', :tr),
+      'Soyad' => UnicodeUtils.upcase('Şenkul', :tr),
       'DogumYili' => '2014'
     })
     bool_value = response.body[:tc_kimlik_no_dogrula_response][:tc_kimlik_no_dogrula_result]

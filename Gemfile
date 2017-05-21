@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'unicode_utils'
+
 group :test do
   gem 'rspec'
 end
