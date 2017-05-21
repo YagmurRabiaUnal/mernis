@@ -22,5 +22,6 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
 
   s.add_dependency "savon", '~> 2.11'
+  s.add_dependency "unicode_utils", '~> 1.4.0'
   s.required_ruby_version = '>= 2.2.0'
 end

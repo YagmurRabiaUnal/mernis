@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'savon'
 gem 'unicode_utils'
 
 group :test do

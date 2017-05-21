@@ -5,3 +5,6 @@ machine:
 test:
   override:
     - bundle exec rspec
+dependencies:
+  pre:
+    - gem install bundler

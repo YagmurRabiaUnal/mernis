@@ -1,8 +1,9 @@
 PATH
   remote: .
   specs:
-    mernis (1.0.2)
+    mernis (1.0.3)
       savon (~> 2.11)
+      unicode_utils (~> 1.4.0)
 
 GEM
   remote: https://rubygems.org/
@@ -103,6 +104,7 @@ DEPENDENCIES
   pry-nav
   pry-remote
   rspec
+  savon
   unicode_utils
 
 BUNDLED WITH
