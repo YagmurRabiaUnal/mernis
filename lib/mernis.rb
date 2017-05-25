@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 require 'mernis/version'
+require 'mernis/request'
 
 class Mernis
   # Most basic usage:
