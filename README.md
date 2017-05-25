@@ -12,6 +12,12 @@ SOAP client for KPS (The Identity Information Sharing System) services provided 
 $ gem install 'mernis'
 ```
 
+or add it to your Gemfile
+
+```
+gem 'mernis', '~> 1.0.5'
+```
+
 ## Tests
 
 ```
