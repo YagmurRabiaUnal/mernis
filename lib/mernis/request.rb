@@ -35,7 +35,7 @@ class Request
     }
 
     # Make the SOAP request and handle errors.
-    result = { status: false }
+    result = { status: nil }
     begin
       response = kps_client.call(:tc_kimlik_no_dogrula, message: message)
     rescue Savon::SOAPFault => error
@@ -54,7 +54,6 @@ class Request
       end
       result[:status] = bool_value
     rescue Savon::InvalidResponseError => error
-      result[:status] = nil
       result[:error_msg] = "Not a valid response! Error: #{error}"
     end
     return result
