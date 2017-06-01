@@ -40,8 +40,10 @@ class Request
       response = kps_client.call(:tc_kimlik_no_dogrula, message: message)
     rescue Savon::SOAPFault => error
       result[:error_msg] = "SOAP fault. Error: #{error}"
+      return result
     rescue Savon::HTTPError => error
       result[:error_msg] = "HTTP connection error. Error: #{error}"
+      return result
     end
 
     # Get the SOAP response and handle errors.
@@ -49,12 +51,6 @@ class Request
       bool_value = response.body[:tc_kimlik_no_dogrula_response][:tc_kimlik_no_dogrula_result]
       result[:status]   = true
       result[:response] = bool_value
-    rescue NoMethodError => error
-      if response.nil?
-        result[:error_msg] = "Errors occured. Response is nil! Error: #{error}"
-      else
-        result[:error_msg] = "There is an error with the response. Error: #{error}"
-      end
     rescue Savon::InvalidResponseError => error
       result[:error_msg] = "Not a valid response! Error: #{error}"
     end
