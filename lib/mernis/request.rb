@@ -38,7 +38,7 @@ class Request
     result = { status: false }
     begin
       response = kps_client.call(:tc_kimlik_no_dogrula, message: message)
-      unless response
+      if response == false
         result[:error_msg] = "Girdiğiniz bilgiler doğrulanamamıştır."
         return result
       end
