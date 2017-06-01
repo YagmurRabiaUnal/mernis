@@ -38,10 +38,6 @@ class Request
     result = { status: false }
     begin
       response = kps_client.call(:tc_kimlik_no_dogrula, message: message)
-      if response == false
-        result[:error_msg] = "Girdiğiniz bilgiler doğrulanamamıştır."
-        return result
-      end
     rescue Savon::SOAPFault => error
       result[:error_msg] = "SOAP fault. Error: #{error}"
       return result
@@ -53,8 +49,10 @@ class Request
     # Get the SOAP response and handle errors.
     begin
       bool_value = response.body[:tc_kimlik_no_dogrula_response][:tc_kimlik_no_dogrula_result]
-      result[:status]   = true
-      result[:response] = bool_value
+      unless bool_value
+        result[:error_msg] = "Girmiş olduğunuz bilgiler hatalı!"
+      end
+      result[:status] = bool_value
     rescue Savon::InvalidResponseError => error
       result[:error_msg] = "Not a valid response! Error: #{error}"
     end
