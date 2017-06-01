@@ -54,6 +54,7 @@ class Request
       end
       result[:status] = bool_value
     rescue Savon::InvalidResponseError => error
+      result[:status] = nil
       result[:error_msg] = "Not a valid response! Error: #{error}"
     end
     return result
