@@ -15,7 +15,7 @@ $ gem install 'mernis'
 or add it to your Gemfile
 
 ```
-gem 'mernis', '~> 1.0.5'
+gem 'mernis', '~> 1.0.6'
 ```
 
 ## Tests
@@ -75,9 +75,9 @@ Returns true if the identity number can be validated and false if not. Both retu
 
 ```ruby
 gem build mernis.gemspec
-gem install ./mernis-1.0.5.gem
-gem push mernis-1.0.5.gem
-git tag -a v1.0.5 -m "Major updates"
+gem install ./mernis-1.0.6.gem
+gem push mernis-1.0.6.gem
+git tag -a v1.0.6 -m "Major updates"
 git push --tags
 ```
 

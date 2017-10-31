@@ -5,7 +5,7 @@ require 'mernis/version'
 
 Gem::Specification.new do |s|
   s.name        = 'mernis'
-  s.version     = '1.0.5'
+  s.version     = '1.0.6'
   s.platform    = Gem::Platform::RUBY
   s.date        = Time.now.strftime('%Y-%m-%d')
   s.summary     = 'SOAP client for KPS [MERNIS] services.'
